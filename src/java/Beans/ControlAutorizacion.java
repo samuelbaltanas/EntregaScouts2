@@ -42,10 +42,10 @@ public class ControlAutorizacion implements Serializable {
             return null;
         
         switch (this.usuario.getRol().getId()) {
-                case Rol.Rol1.EDUCANDO:
+                case EDUCANDO:
                     page = "normal.xhtml";
                     break;
-                case ADMINISTRADOR:
+                case SCOUTER:
                     page = "admin.xhtml";
                     break;
                 default:

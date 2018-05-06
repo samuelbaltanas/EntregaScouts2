@@ -22,7 +22,7 @@ public class Rol implements Serializable {
     
     
 
-    public Enum getId() {
+    public Rol1 getId() {
         return rol;
     }
 
