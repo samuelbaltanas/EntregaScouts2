@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
@@ -34,11 +35,23 @@ public class Evento implements Serializable {
    private String nombre;
    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha;
+   @Column(name="descripcion" , nullable= false , length=500)
+    private String descripcion;
+
+    public List<Grupo> getPertenece_a() {
+        return pertenece_a;
+    }
+
+    public void setPertenece_a(List<Grupo> pertenece_a) {
+        this.pertenece_a = pertenece_a;
+    }
+
   
-  
+
   
   //Relaciones
-    
+    @ManyToMany(mappedBy = "lista_eventos")
+    private List<Grupo> pertenece_a;
     @ManyToMany(mappedBy = "participa_eventos")
     private List<Usuario> participantes;
 
@@ -50,7 +63,7 @@ public class Evento implements Serializable {
     public List<Usuario> getParticipantes() {
         return participantes;
     } 
-    
+   
     public String getNombre() {
         return nombre;
     }
@@ -58,7 +71,11 @@ public class Evento implements Serializable {
     public Date getFecha() {
         return fecha;
     }
-
+   
+    public String getDescripcion() {
+        return descripcion;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -66,7 +83,12 @@ public class Evento implements Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
+    
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+  
+    
     @Override
     public int hashCode() {
         int hash = 3;

@@ -23,7 +23,7 @@ public class Historial implements Serializable {
  
     private static final long serialVersionUID = 1L;
     @Id @ManyToOne private Grupo id;
-    @Id @ManyToOne private Usuario credencial;
+    @Id @ManyToOne private Usuario cuenta;
 
     public Grupo getId() {
         return id;
@@ -33,16 +33,14 @@ public class Historial implements Serializable {
         this.id = id;
     }
 
-   
-
-    public Usuario getCredencial() {
-        return credencial;
+    public Usuario getCuenta() {
+        return cuenta;
     }
 
-    public void setCredencial(Usuario credencial) {
-        this.credencial = credencial;
-    }
-
+    public void setCuenta(Usuario cuenta) {
+        this.cuenta = cuenta;
+    }    
+ 
     
     
     @Override
@@ -54,7 +52,7 @@ public class Historial implements Serializable {
     public int hashCode() {
         int hash = 7;
         hash = 71 * hash + Objects.hashCode(this.id);
-        hash = 71 * hash + Objects.hashCode(this.credencial);
+        hash = 71 * hash + Objects.hashCode(this.cuenta);
         return hash;
     }
 
@@ -73,7 +71,7 @@ public class Historial implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.credencial, other.credencial)) {
+        if (!Objects.equals(this.cuenta, other.cuenta)) {
             return false;
         }
         return true;

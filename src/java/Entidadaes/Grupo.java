@@ -12,8 +12,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -47,6 +50,11 @@ public class Grupo implements Serializable {
    @OneToMany(mappedBy = "grupo")
     private List<Usuario> lista_usuarios;
     
+    @ManyToMany
+    @JoinTable(name = "jnd_evn_grp",
+    joinColumns = @JoinColumn(name = "grupo_fk"),
+    inverseJoinColumns = @JoinColumn(name = "evento_fk"))
+    private List<Evento> lista_eventos;
 
     public String getNombre() {
         return nombre;
@@ -55,6 +63,16 @@ public class Grupo implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public List<Evento> getLista_eventos() {
+        return lista_eventos;
+    }
+
+    public void setLista_eventos(List<Evento> lista_eventos) {
+        this.lista_eventos = lista_eventos;
+    }
+
+
 
     @Override
     public boolean equals(Object object) {

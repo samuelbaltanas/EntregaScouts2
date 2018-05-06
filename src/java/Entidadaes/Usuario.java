@@ -31,11 +31,12 @@ import javax.persistence.TemporalType;
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long credencial;
     
     //Variables
+    @Id
     @Column(name="alias" , nullable= false , length=20)
     private String alias;
     @Column(name="dni" , nullable= false , length=10)
