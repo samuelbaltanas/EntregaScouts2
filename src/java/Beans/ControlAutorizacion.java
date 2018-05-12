@@ -6,16 +6,12 @@ package Beans;
  */
 
 
-import Entidadaes.Evento;
 import Entidadaes.Rol;
 import Entidadaes.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 
 /**
  *

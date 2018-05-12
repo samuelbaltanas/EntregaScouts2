@@ -16,9 +16,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import Entidadaes.Grupo;
+import Entidadaes.Rol;
+import java.util.LinkedList;
 
 /**
  *
@@ -30,10 +30,16 @@ public class SignIn {
         
     private Usuario user;
     private String verify; 
-    private Localidad loc;
+    private Grupo gr;
     
     @Inject
     ControlAutorizacion ctrl;
+    
+    @Inject 
+    ListaUsuarios lst;
+    
+    @Inject
+    listaGrupos lgr;
     
  /*   @PersistenceContext(unitName = "TareaScouts2PU")
     private EntityManager em;
@@ -56,28 +62,7 @@ public class SignIn {
     public String getVerify(){
         return this.verify;
     }
-    
-    public void setLocalidad(String s){
-        this.loc.setNombre(s);
-    }
-    public String getLocalidad(){
-        return this.loc.getNombre();
-    }
-    
-    public void setProvincia(String s){
-        this.loc.setProvincia(s);
-    }
-    public String getProvincia(){
-        return this.loc.getProvincia();
-    }
-    
-    public void setPostal(String s){
-        this.loc.setCodigo_postal(new Integer(s));
-    }
-    public String getPostal(){
-        return this.loc.getCodigo_postal().toString();
-    }
-
+   
     public Usuario getUser() {
         return user;
     }
@@ -89,7 +74,7 @@ public class SignIn {
     public String autenticar(){
     
      //   if(em.find(Usuario.class, this.user.getAlias()) != null){
-          if(false){
+          if(this.lst.getUsuarios().contains(this.user)){
            FacesContext ctx = FacesContext.getCurrentInstance();
            ctx.addMessage(null, 
                    new FacesMessage(FacesMessage.SEVERITY_ERROR, 
@@ -110,19 +95,33 @@ public class SignIn {
         }
         
         this.user.setFecha_ingreso(new Date());
-        this.user.setReside_en(loc);
+        this.lst.getUsuarios().add(user);
         this.ctrl.setUsuario(this.user);
-        return null;
+        
+        return "listaEventos.xhtml";
     }
+
+    public String getGr() {
+        return Integer.toString(gr.getId()) ;
+    }
+
+    public void setGr(String gr) {
+        this.gr = lgr.getGrupos().get(new Integer(gr));
+    }
+    
+    
     
     /**
      * Creates a new instance of SignIn
      */
     public SignIn(){
         this.user = new Usuario();
+        this.user.setReside_en(new Localidad());
+        this.gr = new Grupo(0);
+        this.user.setRol(new Rol(Rol.Rol1.EDUCANDO));
+         this.user.setParticipa_eventos(new LinkedList<>());
+            this.user.setLista_documentos(new LinkedList<>());
         this.verify = "";
-        this.loc = new Localidad();
-        this.loc.setCodigo_postal(10000);
+        
     }
-    
 }

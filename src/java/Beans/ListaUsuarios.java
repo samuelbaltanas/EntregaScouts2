@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package Beans;
-import Entidadaes.Evento;
 import Entidadaes.Rol;
 import Entidadaes.Usuario;
 import java.io.Serializable;
 import java.util.LinkedList;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 
 import javax.inject.Named;

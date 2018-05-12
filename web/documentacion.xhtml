@@ -41,7 +41,7 @@
                          <h:column>
                         
                              <h:form>
-                             <h:commandButton rendered="#{docs.estado_documento == 'PENDIENTE_ENTREGA'}" action="#{doc.setEstado('CORRECTO')}" value=" Validar"/>
+                                 <h:commandButton rendered="#{docs.estado_documento == 'PENDIENTE_REVISION'}" action="#{docs.setEstado_documento('CORRECTO')}" value=" Validar"/>
                              </h:form>
                          </h:column>
                         

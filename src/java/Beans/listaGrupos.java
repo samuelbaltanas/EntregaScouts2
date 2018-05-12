@@ -1,12 +1,8 @@
 package Beans;
 
-import Entidadaes.Evento;
 import Entidadaes.Grupo;
 import java.io.Serializable;
-import java.time.Instant;
-import java.util.Date;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -23,7 +19,7 @@ public class listaGrupos implements Serializable{
     public listaGrupos(){
         grupos = new LinkedList<Grupo>();
         String lst[] = {"Castores", "Lobatos", "Scouts", "Escultas", "Rovers", "Scouters de Apoyo"};
-        for(int i=0;i<5;i++){
+        for(int i=0;i<6;i++){
             Grupo g = new Grupo(i);
             g.setNombre(lst[i]);
             g.setLista_eventos(new LinkedList<>());

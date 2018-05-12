@@ -5,14 +5,9 @@
  */
 package Beans;
 
-import Entidadaes.Documento;
-import Entidadaes.Evento;
-import Entidadaes.Usuario;
 import java.io.Serializable;
-import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 
 
@@ -36,7 +31,7 @@ public class accionDocumentos implements Serializable {
 
     
     public String documentos(){
-        if (ctr.esScouter()) {
+        if (!ctr.esEducando()) {
             return "documentacion.xhtml";
         } else {
             return "user_docs.xhtml";
