@@ -70,4 +70,5 @@ public class PruebaDocumentos implements Serializable{
         return this.crt.getUsuario().getLista_documentos();
     }
 
+    
 }

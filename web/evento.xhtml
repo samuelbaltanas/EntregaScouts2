@@ -18,15 +18,19 @@
                     <h:form >
               <h:outputLabel value = "Nombre" />
               <h:inputText  value="#{creacionEdicionEvento.evento.nombre}" />
-              
+              <br/>
              <h:outputLabel value = "Fecha" />
              <h:inputText  value="#{creacionEdicionEvento.evento.fecha}">
                             <f:convertDateTime pattern="dd/MM/yy"/>
                         </h:inputText>
+             <br/>
               <h:outputLabel value = "Descripcion" />
+              <br/>
               <h:inputTextarea  value="#{creacionEdicionEvento.evento.descripcion}"/>
+              <br/>
               <h:inputHidden value="#{creacionEdicionEvento.evento.id}"/>
               <h:outputLabel value = "Grupos que participaran" />
+              <br/>
               <h:selectManyCheckbox  value="#{creacionEdicionEvento.evento.pertenece_a}">
                   
                   <f:selectItems value="#{listaGrupos.grupos}" var="g" itemValue="#{g}" itemLabel="#{g.nombre}" />

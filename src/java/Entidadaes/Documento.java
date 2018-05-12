@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Documento implements Serializable {
     @Column(name = "fecha_limite", nullable = false)
     private Date fecha_limite;
     @Column(name = "file", nullable = true)
-    private File file;
+    private Part file;
     
     @Column(name="nombre" , nullable= false , length=50)
     private String nombre;
@@ -143,11 +144,11 @@ public class Documento implements Serializable {
         this.nombre = nombre;
     }
 
-    public File getFile() {
+    public Part getFile() {
         return file;
     }
 
-    public void setFile(File file) {
+    public void setFile(Part file) {
         this.file = file;
     }
     

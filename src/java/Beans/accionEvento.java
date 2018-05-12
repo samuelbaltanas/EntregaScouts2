@@ -31,7 +31,7 @@ public class accionEvento implements Serializable{
     listaEventos lista;
     
     public accionEvento() {
-        //crt.getUsuario().getParticipa_eventos().add(lista.getEventos().get(0));
+        
     }
     
     public String apuntarse(Long e){
