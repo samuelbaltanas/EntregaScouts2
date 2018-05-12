@@ -98,5 +98,13 @@ public class Grupo implements Serializable {
     public String toString() {
         return "sii.Grupo[ id=" + nombre + " ]";
     }
+
+    public Grupo() {
+    }
+
+    public Grupo(int id) {
+        this.id = id;
+    }
+  
     
 }

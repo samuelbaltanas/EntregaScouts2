@@ -60,6 +60,11 @@ public class Evento implements Serializable {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
     public List<Usuario> getParticipantes() {
         return participantes;
     } 
@@ -87,7 +92,17 @@ public class Evento implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public Evento() {
+    }
+    
+    
+
+    public Evento(Long id) {
+        this.id = id;
+    }
   
+    
     
     @Override
     public int hashCode() {
@@ -107,13 +122,19 @@ public class Evento implements Serializable {
             return false;
         }
         final Evento other = (Evento) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.fecha, other.fecha)) {
-            return false;
-        }
+
         return true;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public void setParticipantes(List<Usuario> participantes) {
+        this.participantes = participantes;
     }
 
    

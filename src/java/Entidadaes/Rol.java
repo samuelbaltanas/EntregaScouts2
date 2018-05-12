@@ -61,5 +61,15 @@ public class Rol implements Serializable {
     public String toString() {
         return "db_scouts.Rol[ id=" + rol + " ]";
     }
+
+    public Rol() {
+    }
+
+    public Rol(Rol1 rol) {
+        this.rol = rol;
+    }
+    
+    
+    
     
 }

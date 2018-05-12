@@ -36,6 +36,9 @@ public class Documento implements Serializable {
     @Column(name = "fecha_limite", nullable = false)
     private Date fecha_limite;
     
+    @Column(name="nombre" , nullable= false , length=50)
+    private String nombre;
+    
     //Relaciones
     @ManyToOne
     private Usuario dueño;
@@ -102,5 +105,41 @@ public class Documento implements Serializable {
     public String toString() {
         return "db_scouts.Documento[ id=" + id + " ]";
     }
+
+    public Documento() {
+    }
+
+    public Documento(Long id,  Date fecha_limite, Date fecha_subida, Estado estado_documento) {
+        this.id = id;
+        this.estado_documento = estado_documento;
+        this.fecha_subida = fecha_subida;
+        this.fecha_limite = fecha_limite;
+    }
+
+    public Estado getEstado_documento() {
+        return estado_documento;
+    }
+
+    public void setEstado_documento(Estado estado_documento) {
+        this.estado_documento = estado_documento;
+    }
+
+    public Usuario getDueño() {
+        return dueño;
+    }
+
+    public void setDueño(Usuario dueño) {
+        this.dueño = dueño;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
     
 }

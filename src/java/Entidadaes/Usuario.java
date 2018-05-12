@@ -134,6 +134,15 @@ public class Usuario implements Serializable {
         this.nombre = nombre;
     }
 
+    public void setEs_tutelado(List<Tutor_legal> es_tutelado) {
+        this.es_tutelado = es_tutelado;
+    }
+
+    public void setParticipa_eventos(List<Evento> participa_eventos) {
+        this.participa_eventos = participa_eventos;
+    }
+    
+    
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
@@ -238,7 +247,7 @@ public class Usuario implements Serializable {
             return false;
         }
         final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.credencial, other.credencial)) {
+        if (!Objects.equals(this.alias, other.alias)) {
             return false;
         }
         return true;
@@ -257,5 +266,14 @@ public class Usuario implements Serializable {
         return "Usuario{" + "credencial=" + credencial + '}';
     }
 
-  
+    public Usuario() {
+    }
+
+    
+    public Usuario(Long id) {
+        this.credencial = id;
+    }  
+    
+    
 }
+

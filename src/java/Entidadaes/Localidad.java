@@ -60,6 +60,11 @@ public class Localidad implements Serializable {
         this.nombre = nombre;
     }
 
+    public void setCodigo_postal(Integer codigo_postal) {
+        this.codigo_postal = codigo_postal;
+    }
+
+    
 
 
     

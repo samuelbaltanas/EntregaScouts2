@@ -29,6 +29,9 @@ public class Login {
     @Inject
     ControlAutorizacion ctrl;
     
+    @Inject
+    ListaUsuarios lst;
+    
     @PersistenceContext(unitName = "TareaScouts2PU")
     private EntityManager em;
     
@@ -61,14 +64,17 @@ public class Login {
             ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Rellena los campos para hacer login", "Rellena los campos para hacer login"));
             return null;
         }
+        Usuario user = new Usuario();
+        user.setAlias(usuario);
+        int i = lst.getUsuarios().indexOf(user);
+        user = lst.getUsuarios().get(i);
         
-        Usuario user = em.find(Usuario.class, this.usuario);
             
         if (user != null) {
             
             if(user.getContraseña().equals(this.contrasenia)){
                 ctrl.setUsuario(user);
-                return "main.xhtml ";
+                return "listaEventos.xhtml";
             }else{
                 FacesContext ctx = FacesContext.getCurrentInstance();
                 ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Credenciales erroneas", "Credenciales erroneas"));

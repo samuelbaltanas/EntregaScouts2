@@ -17,13 +17,13 @@
                 <ul class="menulist">
                     <li><h:commandLink action="main.xhtml" value="Inicio"/></li>
                     
-                    <c:if test="#{!empty controlAutorizacion.usuario}">
-                        <li><h:commandLink action="#{controlAutorizacion.home()}" value="Home"/></li>
-                        <li><h:commandLink action="data.xhtml" value="Datos personales"/></li>
-                        <li><h:commandLink action="docs.xhtml" value="Documentacion"/></li>
+                    <c:if  test ="#{!empty controlAutorizacion.usuario}" >
+                        <li><h:commandLink action="listaEventos.xhtml" value="Home"/></li>
+                        <li><h:commandLink action="datosUsuario.xhtml" value="Datos personales"/></li>
+                        <li><h:commandLink action="#{accionDocumentos.documentos()}" value="Documentacion"/></li>
                         <li><h:commandLink action="#{controlAutorizacion.logout()}" value="Salir"/></li>
-                        <c:if test="#{controlAutorizacion.isScouter()}">
-                            <li><h:commandLink action="" value="Lista Educandos"/></li>
+                        <c:if test="#{controlAutorizacion.esScouter()}">
+                            <li><h:commandLink action="listaUsuarios.xhtml" value="Lista Educandos"/></li>
                         </c:if>
                     </c:if>
                 </ul>
