@@ -54,8 +54,8 @@ public class PruebaDocumentos implements Serializable{
         lst.getUsuarios().get(1).getLista_documentos().add(d1);
         d2.setDueño(lst.getUsuarios().get(1));
         lst.getUsuarios().get(1).getLista_documentos().add(d2);
-        d3.setDueño(lst.getUsuarios().get(3));
-        lst.getUsuarios().get(3).getLista_documentos().add(d3);
+        d3.setDueño(lst.getUsuarios().get(1));
+        lst.getUsuarios().get(1).getLista_documentos().add(d3);
     }
     
     public List<Documento> getDocumentos() {
