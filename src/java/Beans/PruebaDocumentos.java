@@ -20,7 +20,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named(value = "pruebaDocumentos")
-@ApplicationScoped
+@SessionScoped
 public class PruebaDocumentos implements Serializable{
     
     private List<Documento> documentos;

@@ -273,6 +273,10 @@ public class Usuario implements Serializable {
     public Usuario(Long id) {
         this.credencial = id;
     }  
+
+    public Usuario(String alias) {
+        this.alias = alias;
+    }
     
     
 }

@@ -53,7 +53,9 @@ public class ListaUsuarios implements Serializable {
     public void setUsuarios(LinkedList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-    public boolean buscar(String dni ){
+    
+    
+  /*  public boolean buscar(String dni ){
         boolean res= false;
         for(int i=0; i<usuarios.size();i++){
             if(usuarios.get(i).equals(dni)){
@@ -63,5 +65,5 @@ public class ListaUsuarios implements Serializable {
         }
         return res;
     }
-   
+   */
 }

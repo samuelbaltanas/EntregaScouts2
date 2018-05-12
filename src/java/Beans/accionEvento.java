@@ -9,6 +9,9 @@ import Entidadaes.Evento;
 import Entidadaes.Usuario;
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
+
+
 
 import javax.faces.view.ViewScoped;
 
@@ -20,7 +23,7 @@ import javax.inject.Named;
  * @author Alberto
  */
 @Named(value = "accionEvento")
-@ViewScoped
+@RequestScoped
 public class accionEvento implements Serializable{
     @Inject 
     ControlAutorizacion crt;

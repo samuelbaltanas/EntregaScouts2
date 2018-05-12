@@ -5,6 +5,7 @@
  */
 package Entidadaes;
 
+import java.io.File;
 import java.io.Serializable; 
 import java.util.Date;  
 import javax.persistence.Column;
@@ -35,6 +36,8 @@ public class Documento implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_limite", nullable = false)
     private Date fecha_limite;
+    @Column(name = "file", nullable = true)
+    private File file;
     
     @Column(name="nombre" , nullable= false , length=50)
     private String nombre;
@@ -138,6 +141,14 @@ public class Documento implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
     
     
